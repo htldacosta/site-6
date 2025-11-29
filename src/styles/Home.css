@@ -1,0 +1,200 @@
+/* src/styles/Home.css */
+
+/* HERO SECTION (Sessão Principal) */
+.sec {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+.sec-imagem {
+  width: 250px;
+  height: 250px;
+  background-color: #333;
+  /* A imagem será inserida via estilo inline no React para garantir o caminho correto */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 5px solid var(--primary-accent-color);
+  margin: 0 auto;
+}
+
+.sec-content {
+  text-align: center;
+}
+
+.sec-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: var(--primary-text-color);
+}
+
+.sec-content p {
+  font-size: 1.2rem;
+  color: var(--primary-accent-color);
+  margin-bottom: 30px;
+}
+
+/* PROJETOS (Resumo) */
+.projetos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--primary-text-color);
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-accent-color);
+  margin: 10px auto 0;
+}
+
+.projeto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.projeto-card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.projeto-imagem-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #333;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.projeto-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-text-color);
+}
+
+/* COMPETÊNCIAS (Carrossel Infinito) */
+.skills {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.scroller {
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 30px;
+  width: max-content;
+  list-style: none;
+  padding: 20px 0;
+}
+
+/* Animação ativada apenas se tiver o atributo data-animated */
+.scroller[data-animated="true"] .skills-list {
+  animation: scroll 40s linear infinite;
+}
+
+.scroller:hover .skills-list {
+  animation-play-state: paused;
+}
+
+.skill-item {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+}
+
+.skill-item img {
+  width: 60px;
+  height: 60px;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* SOBRE (Resumo) */
+.sobre {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+.sobre-content {
+  background-color: var(--card-bg-color);
+  padding: 40px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.sobre-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* RESPONSIVIDADE (Desktop) */
+@media (min-width: 769px) {
+  .sec {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+  .sec-imagem {
+    order: 1;
+    margin: 0;
+    width: 320px;
+    height: 320px;
+  }
+  .sec-content {
+    order: 2;
+    text-align: left;
+  }
+}

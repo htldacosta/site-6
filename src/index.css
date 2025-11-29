@@ -1,0 +1,57 @@
+/* src/index.css */
+
+/* RESET BÁSICO E CONFIGURAÇÕES GLOBAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* MINHAS VAR CSS */
+:root {
+  --bg-color: #121212;
+  --primary-text-color: #eaeaea;
+  --primary-accent-color: #2ecc71;
+  --secondary-accent-color: #f39c12;
+  --card-bg-color: #1e1e1e;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--primary-text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ESTILOS GLOBAIS PARA BOTÕES (Reutilizável) */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer; /* Importante para botões no React */
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+.btn-primary {
+  background-color: transparent;
+  border: 2px solid var(--primary-accent-color);
+  color: var(--primary-accent-color);
+}
+.btn-primary:hover {
+  background-color: var(--primary-accent-color);
+  color: var(--bg-color);
+}
+.btn-secondary {
+  background-color: var(--secondary-accent-color);
+  border: 2px solid var(--secondary-accent-color);
+  color: var(--bg-color);
+}
+.btn-secondary:hover {
+  background-color: #d4890c;
+  border-color: #d4890c;
+}

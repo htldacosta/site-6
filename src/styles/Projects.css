@@ -1,0 +1,117 @@
+/* src/styles/Projects.css */
+
+.portfolio-section {
+  padding: 80px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: calc(100vh - 160px); /* Ajuste para empurrar o footer */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--primary-text-color);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-accent-color);
+  margin: 10px auto 0;
+}
+
+.portfolio-grid {
+  display: grid;
+  /* Começa com 1 coluna (mobile-first) */
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.portfolio-card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary-accent-color);
+}
+
+.card-imagem-placeholder {
+  height: 200px;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-weight: bold;
+}
+
+.card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: var(--primary-text-color);
+}
+
+.card-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ccc;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tech-tag {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-accent-color);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* RESPONSIVIDADE */
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

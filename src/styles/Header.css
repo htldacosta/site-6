@@ -1,0 +1,124 @@
+/* src/styles/Header.css */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--primary-text-color);
+  transition: all 0.3s ease-in-out;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  /* Note que no React, vamos alternar a classe 'active' via estado */
+  .nav-menu {
+    position: absolute;
+    top: 85px;
+    left: -100%;
+    width: 100%;
+    background-color: var(--bg-color);
+    transition: left 0.3s ease-in-out;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    gap: 0;
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .nav-links li:hover {
+    background-color: var(--card-bg-color);
+  }
+}
